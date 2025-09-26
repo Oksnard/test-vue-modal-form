@@ -132,7 +132,7 @@ onMounted(() => {
       </ul>
     </div>
   </div>
-  
+
   <small v-if="error" class="error-message">{{ error }}</small>
 </template>
 
@@ -164,6 +164,7 @@ onMounted(() => {
   transition: all 0.18s ease;
   background: #ffffff;
   padding: 0 4px;
+  font-weight: 500;
 }
 
 .floating.active .label,
@@ -197,6 +198,7 @@ onMounted(() => {
 .menu {
   position: absolute;
   z-index: 20;
+  top: 66px;
   inset-inline: 0;
   margin-top: 6px;
   border: 1px solid #d7e0ea;

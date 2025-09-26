@@ -7,6 +7,7 @@ import BaseInput from './base/BaseInput.vue'
 import BaseSelect from './base/BaseSelect.vue'
 import BaseRange from './base/BaseRange.vue'
 import IMask from 'imask'
+import BaseInputAddress from './base/BaseInputAddress.vue'
 
 const emit = defineEmits(['close'])
 
@@ -56,6 +57,13 @@ const options = [
   { label: 'Склад', value: 'storage' }
 ]
 
+// Обработчик выбора адреса
+const handleAddressSelect = (suggestion) => {
+  console.log('Выбран адрес:', suggestion)
+  // Можно сохранить дополнительные данные адреса
+  // suggestion.data содержит полную информацию (город, регион, индекс и т.д.)
+}
+
 const submit = handleSubmit(async values => {
   try {
     await new Promise(r => setTimeout(r, 600))
@@ -87,7 +95,6 @@ const state = ref({ message: '', kind: 'idle' })
           v-model="phone"
           type="tel"
           label="Контактный телефон"
-          ё
           :error="errors.phone"
           required
         />
@@ -96,7 +103,14 @@ const state = ref({ message: '', kind: 'idle' })
           <BaseSelect v-model="roomType" :options="options" :error="errors.roomType" multiple label="Тип помещения" />
         </label>
 
-        <BaseInput v-model="address" label="Адрес" placeholder="Введите адрес" :error="errors.address" required />
+        <BaseInputAddress
+          v-model="address"
+          label="Адрес"
+          :error="errors.address"
+          :delay="400"
+          @select="handleAddressSelect"
+          required
+        />
 
         <div class="field range">
           <BaseRange

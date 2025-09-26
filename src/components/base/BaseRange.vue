@@ -115,7 +115,7 @@ watch([fromVal, toVal], ([newFrom, newTo]) => {
 .input-group {
   display: flex;
   align-items: center;
-  flex: 1;
+  width: 100%;
   height: 66px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
@@ -144,6 +144,7 @@ watch([fromVal, toVal], ([newFrom, newTo]) => {
   display: flex;
   align-items: center;
   min-width: 40px;
+  font-weight: 500;
 }
 
 .range-input {
@@ -157,7 +158,7 @@ watch([fromVal, toVal], ([newFrom, newTo]) => {
   background: transparent;
   font-family: inherit;
   text-align: right;
-  
+
 }
 
 .range-input[type='number']::-webkit-outer-spin-button,

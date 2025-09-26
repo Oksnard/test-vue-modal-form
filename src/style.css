@@ -71,7 +71,11 @@ input {
 }
 
 .modal-content {
-  margin: 30% auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   width: min(760px, calc(100vw - 32px));
   border-radius: 12px;
   background: #fff;
